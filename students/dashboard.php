@@ -10,7 +10,7 @@
 <body>
     <div class="vidya_content">
         <div class="content_1">
-          <form method="" action="">
+        <form method="" action="">
             <h1>Welcome to Vidya Vriddhi
                 Unlock Your Potential, Ignite Your Passion for Learningn <a href="course.php" class="btn">Explore course</a></button>
             </h1>    
