@@ -12,7 +12,7 @@
         <div class="content_1">
         <form method="" action="">
             <h1>Welcome to Vidya Vriddhi
-                Unlock Your Potential, Ignite Your Passion for Learningn <a href="course.php" class="btn">Explore course</a></button>
+                Unlock Your Potential, Ignite Your Passion for Learningn <a href="course.php" class="inline-option-btn">Explore course</a></button>
             </h1>    
         </form>
         </div>

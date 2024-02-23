@@ -6,12 +6,15 @@
     <title>Document</title>
     </header><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 <header class="header">  
         <section class="sec">
             <div class="logo-container">
+                <a href="home.php">
                 <img src="logo.png" alt="Vidya Vriddhi" class="logo-img">
+                </a>
             </div>
             <form action="" method="POST" class="form">
                 <input type="text" placeholder="search course">
@@ -30,7 +33,7 @@
         </div>
         <div class="profile">
             <img src="" alt="">
-            <h3>condo</h3>
+            <h3>User</h3>
             <span>student</span>
             <a href="profile.php" class="btn">view profile</a>
          </div>
@@ -41,6 +44,7 @@
             <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
             <a href="contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
          </nav>
+
       </div>
 </body>
 </html>

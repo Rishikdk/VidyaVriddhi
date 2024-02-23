@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <?php
-     include_once('student_header.php');
+     include_once('admin_header.php');
      include_once('../database/db_connect.php');
     ?>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
 <?php
     $sql = "SELECT * FROM courses";
     $result = $conn->query($sql);
@@ -27,7 +27,9 @@
             echo '<h2>' . $row["course_name"] . '</h2>';
             echo '<p>Contributors: ' . $row["contributors"] . '</p>';
             echo '<p>Resources: ' . $row["resources"] . '</p>';
-            echo '<a href="reviews.php?course_id=' . $row["course_id"] . ' " class="btn">Reviews</a>';
+            echo '<a href="update_course.php?course_id=' . $row["course_id"] . ' " class="button-35">Update</a>';
+            echo '<a href="reviews.php?course_id=' . $row["course_id"] . ' " class="button-35">Delete</a>';
+            echo '<a href="reviews.php?course_id=' . $row["course_id"] . ' " class="button-35">Reviews</a>';
             echo '</div>'; 
             $count++;
             if ($count % 3 == 0) {

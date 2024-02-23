@@ -13,7 +13,7 @@
 <body>
     
 <?php
-    $sql = "SELECT * FROM courses";
+    $sql = "SELECT * FROM teachers";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -21,13 +21,14 @@
         echo '<div>'; 
         while ($row = $result->fetch_assoc()) {
             echo '<div class="course-box">';
-            echo '<a href="course.php?course_id=' . $row["course_id"] . '">';
-            echo '<img src="../images/' . $row["course_image"] . '" alt="' . $row["course_name"] . '">';
-            echo '</a>';
-            echo '<h2>' . $row["course_name"] . '</h2>';
+            //echo '<a href="../teachers/'. $row["teacher_id"] .'.php">';
+            // echo '<img src="../images/' . $row["teacher_image"] . '" alt="' . $row["teacher_name"] . '">';
+            //echo '</a>';
+            echo '<i class ="fas fa-user"></i>';
+            echo '<h2>' . $row["teacher_name"] . '</h2>';
             echo '<p>Contributors: ' . $row["contributors"] . '</p>';
             echo '<p>Resources: ' . $row["resources"] . '</p>';
-            echo '<a href="reviews.php?course_id=' . $row["course_id"] . ' " class="btn">Reviews</a>';
+            echo '<a href="reviews.php?teacher_id=' . $row["teacher_id"] . ' " class="btn">Reviews</a>';
             echo '</div>'; 
             $count++;
             if ($count % 3 == 0) {
