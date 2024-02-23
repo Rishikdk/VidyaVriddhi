@@ -12,7 +12,7 @@
 <header class="header">  
         <section class="sec">
             <div class="logo-container">
-                <a href="home.php">
+                <a href="admin_header.php">
                 <img src="logo.png" alt="Vidya Vriddhi" class="logo-img">
                 </a>
             </div>
@@ -41,7 +41,7 @@
             <a href="home.php"><i class="fas fa-home"></i><span>home</span></a>
             <a href="about.php"><i class="fas fa-question"></i><span>about us</span></a>
             <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-            <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
+            <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>Expertise</span></a>
             <a href="students.php"><i class="fas fa-user"></i><span>Students</span></a>
          </nav>
 
