@@ -12,7 +12,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<?php
+    <div class="course-box1">
+        <div class="add_new">
+            <h3> ADD NEW COURSE </h3>
+            <a href ="new_course.php" class="button-24"> ADD </a>
+        </div>
+    </div>
+
+    <?php
     $sql = "SELECT * FROM courses";
     $result = $conn->query($sql);
 
@@ -27,9 +34,15 @@
             echo '<h2>' . $row["course_name"] . '</h2>';
             echo '<p>Contributors: ' . $row["contributors"] . '</p>';
             echo '<p>Resources: ' . $row["resources"] . '</p>';
-            echo '<a href="update_course.php?course_id=' . $row["course_id"] . ' " class="button-35">Update</a>';
-            echo '<a href="reviews.php?course_id=' . $row["course_id"] . ' " class="button-35">Delete</a>';
-            echo '<a href="reviews.php?course_id=' . $row["course_id"] . ' " class="button-35">Reviews</a>';
+
+            // Buttons for Actions
+            echo '<form action="course_process.php" method="post">';
+            echo '<input type="hidden" name="course_id" value="' . $row["course_id"] . '">';
+            echo '<button type="submit" name="update_course" class="button-35">Update</button>';
+            echo '<button type="submit" name="delete_course" class="button-35">Delete</button>';
+            echo '<button type="submit" name="reviews" class="button-35">Reviews</button>';
+            echo '</form>';
+            
             echo '</div>'; 
             $count++;
             if ($count % 3 == 0) {

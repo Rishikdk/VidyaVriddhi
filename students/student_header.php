@@ -13,7 +13,7 @@
         <section class="sec">
             <div class="logo-container">
                 <a href="home.php">
-                <img src="logo.png" alt="Vidya Vriddhi" class="logo-img">
+                <img src="../images/logo.png" alt="Vidya Vriddhi" class="logo-img">
                 </a>
             </div>
             <form action="" method="POST" class="form">

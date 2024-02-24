@@ -27,7 +27,9 @@
             echo '<h2>' . $row["course_name"] . '</h2>';
             echo '<p>Contributors: ' . $row["contributors"] . '</p>';
             echo '<p>Resources: ' . $row["resources"] . '</p>';
-            echo '<a href="reviews.php?course_id=' . $row["course_id"] . ' " class="btn">Reviews</a>';
+            echo '<a href="reviews.php?course_id=' . $row["course_id"] . ' " class="button-28">Reviews</a>';
+            echo '<a href="enroll.php?course_id=' . $row["course_id"] . ' " class="button-28">Enroll</a>';
+
             echo '</div>'; 
             $count++;
             if ($count % 3 == 0) {

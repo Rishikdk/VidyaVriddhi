@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 <header class="header">  
@@ -27,24 +26,5 @@
             </div>
         </section>
     </header>
-    <div class="side-bar">
-        <div class="close-side-bar">
-           <i class="fas fa-times"></i>
-        </div>
-        <div class="profile">
-            <img src="" alt="">
-            <h3>
-                <span>Admin</span>
-            <h3>
-         </div>
-        <nav class="navbar">
-            <a href="home.php"><i class="fas fa-home"></i><span>home</span></a>
-            <a href="about.php"><i class="fas fa-question"></i><span>about us</span></a>
-            <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-            <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>Expertise</span></a>
-            <a href="students.php"><i class="fas fa-user"></i><span>Students</span></a>
-         </nav>
-
-      </div>
 </body>
 </html>

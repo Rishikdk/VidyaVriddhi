@@ -358,6 +358,17 @@ body.active {
   border: 1px solid #ea6767;
   margin-left: 45rem;
 }
+
+.top_container {
+  width: 50rem;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-left: 20rem;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+}
+
 .side-bar {
   position: fixed;
   top: 0;
