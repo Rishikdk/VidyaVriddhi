@@ -352,6 +352,8 @@ body.active {
   vertical-align: top;
   text-align: center;
   box-sizing: border-box;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
 
 .course-box1 {
@@ -359,14 +361,17 @@ body.active {
   margin-left: 45rem;
 }
 
-.top_container {
-  width: 50rem;
-  border: 1px solid #ccc;
+.u-container {
+  width: 30rem;
+  border: 1px solid #746565;
   padding: 20px;
-  margin-left: 20rem;
+  margin-top: 1rem;
+  margin-left: 35rem;
   display: inline-block;
   box-sizing: border-box;
   text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .side-bar {
