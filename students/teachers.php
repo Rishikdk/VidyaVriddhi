@@ -8,7 +8,7 @@
      include_once('student_header.php');
      include_once('../database/db_connect.php');
     ?>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <?php

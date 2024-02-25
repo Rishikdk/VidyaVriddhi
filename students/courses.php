@@ -8,7 +8,7 @@
      include_once('student_header.php');
      include_once('../database/db_connect.php');
     ?>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     
@@ -21,7 +21,7 @@
         echo '<div>'; 
         while ($row = $result->fetch_assoc()) {
             echo '<div class="course-box">';
-            echo '<a href="course.php?course_id=' . $row["course_id"] . '">';
+            echo '<a href="../contents/'. $row["course_id"] . '.php?php?course_id=' . $row["course_id"] . '">';
             echo '<img src="../images/' . $row["course_image"] . '" alt="' . $row["course_name"] . '">';
             echo '</a>';
             echo '<h2>' . $row["course_name"] . '</h2>';

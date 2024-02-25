@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
     <?php
      include_once('admin_header.php');
      include_once('../database/db_connect.php');
     ?>
-
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="course-box1">
