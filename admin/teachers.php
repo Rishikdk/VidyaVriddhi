@@ -8,7 +8,7 @@
      include_once('admin_header.php');
      include_once('../database/db_connect.php');
     ?>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
         

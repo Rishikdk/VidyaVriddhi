@@ -12,7 +12,7 @@
 </head>
 <body>
 <?php
-    $sql = "SELECT * FROM teachers";
+    $sql = "SELECT * FROM expertise";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -20,14 +20,14 @@
         echo '<div>'; 
         while ($row = $result->fetch_assoc()) {
             echo '<div class="course-box">';
-            echo '<a href="../teachers/'. $row["teacher_id"] .'.php">';
+            echo '<a href="../expertises/'. $row["expertise_id"] .'.php">';
             echo '<img src="../images/' . $row["teacher_image"] . '" alt="' . $row["teacher_name"] . '">';
             echo '</a>';
             echo '<i class ="fas fa-user"></i>';
             echo '<h2>' . $row["teacher_name"] . '</h2>';
-            echo '<p>Contributors: ' . $row["contributors"] . '</p>';
-            echo '<p>Resources: ' . $row["resources"] . '</p>';
-            echo '<a href="reviews.php?teacher_id=' . $row["teacher_id"] . ' " class="btn">Reviews</a>';
+            echo '<p>Contributors: </p>';
+            echo '<p>Resources: </p>';
+            echo '<a href="reviews.php?expertise_id=' . $row["expertise_id"] . ' " class="btn">Reviews</a>';
             echo '</div>'; 
             $count++;
             if ($count % 3 == 0) {
