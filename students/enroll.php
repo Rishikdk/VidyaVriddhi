@@ -33,13 +33,52 @@
       }
   }
 ?>
-    <div class="u-container">
-       
-    </div>
     <div class="containner">
       <div class="section">
-        <div class="contributers">Contributers</div>
-        <div class="learners">learners</div>
+        <div class="contributer">
+          <h2>List of Expertise</h2>
+              <div class="scroll-box">
+              <?php
+                // Fetch expertise data from the database and display it in the scrollable box
+                $sql = "SELECT * FROM Expertise ";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                  while ($row = $result->fetch_assoc()) {
+                      echo "<div class='teacher-box'>";
+                      echo "<img src='../images/" . $row["teacher_image"] . "' alt='" . $row["teacher_name"] . "'>";
+                      echo "<p>";
+                      echo "<strong>Teacher Name:</strong> " . $row["teacher_name"] . "<br>";
+                      echo "" . $row["teacher_description"] . "<br>";
+                      echo "</p>";
+                      echo "</div>";
+                  }
+              } else {
+                  echo "<p>No expertise found.</p>";
+              }
+          ?>
+        </div>
+        </div>
+        <div class="learners">
+          <h2>Enrolled Students</h2>
+          <?php 
+            $sql = "SELECT * FROM students";
+              $result = $conn ->query($sql);
+              if($result ->num_rows >0){
+                while($row = $result -> fetch_assoc()){
+                  echo "<div class='learner-box'>";
+                      echo "<p>";
+                      echo "<strong>Student Name:</strong> " . $row["student_name"] . "<br>";
+                      echo "</p>";
+                      echo "<p>";
+                      echo "<strong>Enrolled Date:</strong> " . $row["enrolled_date"] . "<br>";
+                      echo "</p>";
+                      echo "</div>";
+                }
+              }else {
+                echo "<p>No expertise found.</p>";
+              }
+            ?>
+        </div>
       </div>
       <div class="section">
       <div class="course">

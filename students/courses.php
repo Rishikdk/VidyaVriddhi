@@ -22,9 +22,7 @@ include_once('../database/db_connect.php');
     LEFT JOIN Topics t ON c.course_id = t.course_id
     LEFT JOIN Expertise e ON t.topic_id = e.topic_id
     LEFT JOIN Resources r ON t.topic_id = r.topic_id
-    GROUP BY c.course_id, c.course_name, c.course_image;
-
-            ";
+    GROUP BY c.course_id, c.course_name, c.course_image;";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -32,7 +30,7 @@ include_once('../database/db_connect.php');
         echo '<div>'; 
         while ($row = $result->fetch_assoc()) {
             echo '<div class="course-box">';
-            echo '<a href="../contents/'. $row["course_id"] . '.php?php?course_id=' . $row["course_id"] . '">';
+            echo '<a href="../contents/content_generator.php?course_id=' . $row["course_id"] . '">';
             echo '<img src="../images/' . $row["course_image"] . '" alt="' . $row["course_name"] . '">';
             echo '</a>';
             echo '<h2>' . $row["course_name"] . '</h2>';

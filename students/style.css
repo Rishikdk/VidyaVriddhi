@@ -27,12 +27,21 @@ body {
 }
 .learners {
   height: 200px;
-  background-color: brown;
+  background-color: rgb(195, 187, 187);
 }
 .course {
-  background-color: burlywood;
+  background-color: rgb(207, 201, 194);
   height: 500px;
 }
 .dashboard {
   background-color: cadetblue;
+}
+.scroll-box {
+  height: 300px; /* Set the height of the box */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
