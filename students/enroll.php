@@ -61,7 +61,10 @@
         <div class="learners">
           <h2>Enrolled Students</h2>
           <?php 
-            $sql = "SELECT * FROM students";
+            $sql = "SELECT s.*, e.enrolled_date
+              FROM students s
+              INNER JOIN enrollments e ON s.student_id = s.student_id ";
+              
               $result = $conn ->query($sql);
               if($result ->num_rows >0){
                 while($row = $result -> fetch_assoc()){
