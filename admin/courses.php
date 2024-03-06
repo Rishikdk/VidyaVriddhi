@@ -6,36 +6,50 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/styles.css">
 
-    <?php
-     include_once('admin_header.php');
-     include_once('../database/db_connect.php');
-    ?>
 </head>
 <body>
-    <div class="course-box1">
-        <div class="add_new">
-            <h3> ADD NEW COURSE </h3>
-            <a href ="new_course.php" class="button-24"> ADD </a>
-        </div>
-    </div>
+<?php
+    include_once('admin_header.php');
+    include_once('../database/db_connect.php');
 
-    <?php
-    $sql = "SELECT * FROM courses";
+    $sql = "SELECT c.course_id, 
+        c.course_name, 
+        c.course_image, 
+        COUNT(DISTINCT e.expertise_id) AS total_contributors,
+        COUNT(DISTINCT r.resource_id) AS total_resources
+        FROM Courses c
+        LEFT JOIN Topics t ON c.course_id = t.course_id
+        LEFT JOIN Expertise e ON t.topic_id = e.topic_id
+        LEFT JOIN Resources r ON t.topic_id = r.topic_id
+        GROUP BY c.course_id, c.course_name, c.course_image;";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $count = 0;
         echo '<div>'; 
         while ($row = $result->fetch_assoc()) {
-            echo '<div class="course-box">';
-            echo '<a href="course.php?course_id=' . $row["course_id"] . '">';
+            $course_id = $row["course_id"];
+            $check_sql = "SELECT COUNT(*) AS count FROM uploaded_items WHERE course_id = '$course_id'";
+            $check_result = $conn->query($check_sql);
+            $check_row = $check_result->fetch_assoc();
+            $has_uploaded_items = $check_row["count"] > 0;
+
+            echo '<div class="course-box2">';
+            echo '<a href="../contents/content_generator.php?course_id=' . $row["course_id"] . '">';
             echo '<img src="../images/' . $row["course_image"] . '" alt="' . $row["course_name"] . '">';
             echo '</a>';
             echo '<h2>' . $row["course_name"] . '</h2>';
-            echo '<p>Contributors: ' . $row["contributors"] . '</p>';
-            echo '<p>Resources: ' . $row["resources"] . '</p>';
+            echo '<p>Contributors: ' . $row["total_contributors"] . '</p>';
+            echo '<p>Resources: ' . $row["total_resources"] . '</p>';
 
-            // Buttons for Actions
+            if ($has_uploaded_items) {
+                echo '<form action="approve.php" method="post">';
+                echo '<a href="approve.php?course_id=' . $course_id . '" class="button-35">Approve</a>';
+                echo '</form>';
+            }
+            
+
+            // Buttons for other actions
             echo '<form action="course_process.php" method="post">';
             echo '<input type="hidden" name="course_id" value="' . $row["course_id"] . '">';
             echo '<button type="submit" name="update_course" class="button-35">Update</button>';
@@ -53,6 +67,7 @@
     } else {
         echo "No courses found.";
     }
-    ?>
+?>
+
 </body>
 </html>
