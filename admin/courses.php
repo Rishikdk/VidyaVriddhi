@@ -49,7 +49,6 @@
             }
             
 
-            // Buttons for other actions
             echo '<form action="course_process.php" method="post">';
             echo '<input type="hidden" name="course_id" value="' . $row["course_id"] . '">';
             echo '<button type="submit" name="update_course" class="button-35">Update</button>';

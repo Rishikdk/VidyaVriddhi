@@ -15,9 +15,7 @@
     
     if(isset($_GET['course_id'])){
         $course_id = $_GET['course_id'];
-        
-        // Test to ensure course_id is correctly retrieved
-        echo "Course ID: " . $course_id;
+       // echo "Course ID: " . $course_id;
 
         $sql = "SELECT * FROM uploaded_items WHERE course_id = '$course_id'";
         $result = $conn->query($sql);
@@ -35,8 +33,8 @@
                 echo '</div>';
                 echo '<form action="process_approval.php" method="post">';
                 echo '<input type="hidden" name="item_id" value="' . $row["id"] . '">';
-                echo '<button type="submit" name="approve">Approve</button>';
-                echo '<button type="submit" name="reject">Reject</button>';
+                echo '<button type="submit" name="approve" class="button-35">Approve</button>';
+                echo '<button type="submit" name="reject" class = "button-35">Reject</button>';
                 echo '</form>';
                 echo '</div>';
             }

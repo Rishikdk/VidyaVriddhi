@@ -12,14 +12,14 @@
             <img src="./register/logo.png" class="logo" alt="">
         </div>
         <div class="right">
-            <form action="./students/home.php" method="POST" class="form" onsubmit="return validate()">
+            <form action="./register/login_process.php" method="POST" class="form">
                 <div class="username prefix">
                     <label>Username :</label>
-                    <input type="text" id="name">
+                    <input type="text" name="username" id="name">
                 </div>
                 <div class="Password prefix">
                     <label>Password :</label>
-                    <input type="text" id="password">
+                    <input type="password" name="password" id="password">
                 </div>
                 <button type="submit">Log In</button>
                 <div class ="container">

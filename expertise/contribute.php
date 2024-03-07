@@ -2,21 +2,24 @@
     include_once('header.php');
     include_once('../database/db_connect.php');
     if (isset($_POST['submit'])) {
-    $title = $_POST['title'];
-    $description = $_POST['description'];
+        if(isset($_GET['course_id'])){
+            $course_id = $_GET['course_id'];
+        }
+        $title = $_POST['title'];
+        $description = $_POST['description'];
     
-    $thumbnail_path = '../uploads/' . $_FILES['thumb']['name'];
-    $video_path = '../uploads/' . $_FILES['video']['name'];
+        $thumbnail_path = '../uploads/' . $_FILES['thumb']['name'];
+        $video_path = '../uploads/' . $_FILES['video']['name'];
     
-    move_uploaded_file($_FILES['thumb']['tmp_name'], $thumbnail_path);
-    move_uploaded_file($_FILES['video']['tmp_name'], $video_path);
+        move_uploaded_file($_FILES['thumb']['tmp_name'], $thumbnail_path);
+        move_uploaded_file($_FILES['video']['tmp_name'], $video_path);
     
-    $sql = "INSERT INTO uploaded_items (title, description, thumbnail_path, video_path) VALUES ('$title', '$description', '$thumbnail_path', '$video_path')";
-    if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+        $sql = "INSERT INTO uploaded_items (title,course_id, description, thumbnail_path, video_path) VALUES ('$title','$course_id', '$description', '$thumbnail_path', '$video_path')";
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 ?>
 
