@@ -13,16 +13,26 @@ include_once('../database/db_connect.php');
 </head>
 <body>
 <?php
+$learner_username = $_SESSION['username'];
+
+$sql_get_learner_id = "SELECT id FROM learner WHERE email = '$learner_username'";
+$result_get_learner_id = $conn->query($sql_get_learner_id);
+if ($result_get_learner_id->num_rows > 0) {
+    $row_learner_id = $result_get_learner_id->fetch_assoc();
+    $learner_id = $row_learner_id['id'];
+
     $sql = "SELECT c.course_id, 
-    c.course_name, 
-    c.course_image, 
-    COUNT(DISTINCT e.expertise_id) AS total_contributors,
-    COUNT(DISTINCT r.resource_id) AS total_resources
-    FROM Courses c
-    LEFT JOIN Topics t ON c.course_id = t.course_id
-    LEFT JOIN Expertise e ON t.topic_id = e.topic_id
-    LEFT JOIN Resources r ON t.topic_id = r.topic_id
-    GROUP BY c.course_id, c.course_name, c.course_image;";
+            c.course_name, 
+            c.course_image, 
+            COUNT(DISTINCT e.expertise_id) AS total_contributors,
+            COUNT(DISTINCT r.resource_id) AS total_resources,
+            EXISTS(SELECT 1 FROM enrollments WHERE course_id = c.course_id AND student_id = '$learner_id') AS is_enrolled
+            FROM Courses c
+            LEFT JOIN Topics t ON c.course_id = t.course_id
+            LEFT JOIN Expertise e ON t.topic_id = e.topic_id
+            LEFT JOIN Resources r ON t.topic_id = r.topic_id
+            GROUP BY c.course_id, c.course_name, c.course_image;";
+
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -37,7 +47,11 @@ include_once('../database/db_connect.php');
             echo '<p>Contributors: ' . $row["total_contributors"] . '</p>';
             echo '<p>Resources: ' . $row["total_resources"] . '</p>';
             echo '<a href="reviews.php?course_id=' . $row["course_id"] . ' " class="button-28">Reviews</a>';
-            echo '<a href="enroll.php?course_id=' .$row["course_id"] . '" class="button-28">Enroll</a>';
+            if ($row["is_enrolled"]) {
+                echo '<a href="progress.php?course_id=' . $row["course_id"] . '" class="button-28">Progress</a>';
+            } else {
+                echo '<a href="enroll.php?course_id=' . $row["course_id"] . '" class="button-28">Enroll</a>';
+            }
             echo '</div>'; 
             $count++;
             if ($count % 3 == 0) {
@@ -45,9 +59,12 @@ include_once('../database/db_connect.php');
             }
         }
         echo '</div>'; 
-    }   else {
+    } else {
         echo "No courses found.";
     }
+} else {
+    echo "Error: Unable to fetch learner ID.";
+}
 ?>
 </body>
 </html>

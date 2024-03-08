@@ -1,0 +1,156 @@
+/* .nav {
+  height: 70px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.logo {
+  height: 70%;
+  width: auto;
+}
+.input {
+  height: 20px;
+  width: auto;
+  padding: 15px;
+  font-size: 18px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 100px;
+}
+.formTitle {
+  font-weight: bold;
+  font-size: 20px;
+  border-bottom: solid 4px rgb(225, 225, 225);
+  padding: 10px;
+  color: var(--black);
+}
+#previewImage {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+.btn {
+  height: 50px;
+  font-size: 18px;
+  padding: 15px;
+  background-color: var(--blue);
+}
+.btn-primary {
+  height: 50px;
+  font-size: 18px;
+  padding: 15px;
+} */
+
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.containers {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  border-radius: 15%;
+  gap: 15px;
+  /* background-color: aquamarine; */
+}
+.containers h1 {
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+  padding: 5px;
+}
+
+.containers form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.name {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pass {
+  display: flex;
+  gap: 50px;
+}
+
+.work {
+  display: flex;
+  gap: 50px;
+}
+.citizen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.doc_img {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+}
+
+.submit {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.containers input {
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.doc_img img {
+  width: 50px;
+  height: auto;
+}
+
+.citizen img {
+  width: 50px;
+  height: auto;
+}
+
+.continer_info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: solid;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.container_img {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  border: solid;
+  border-radius: 10px;
+  gap: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}

@@ -365,11 +365,13 @@ body.active {
 .course-box2:hover {
   background-color: var(--light-bg);
   box-shadow: none;
+  transform: scale(1.02);
 }
 
 .course-box1 {
   border: 1px solid #ea6767;
   margin-left: 45rem;
+  transform: scale(1.02);
 }
 
 .u-container {

@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
         <h3 class="w3-bar-item">Topics</h3>
         <?php
             include_once('../database/db_connect.php');

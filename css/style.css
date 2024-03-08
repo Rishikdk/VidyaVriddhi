@@ -333,14 +333,14 @@ body.active {
   box-sizing: border-box;
   text-align: center;
   border-radius: 15px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
-    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
-  transition: all 300ms ease;
+  transition: all 200ms ease;
 }
 
 .course-box:hover {
   background-color: var(--light-bg);
-  box-shadow: none;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  transform: scale(1.02);
 }
 
 .side-bar {
