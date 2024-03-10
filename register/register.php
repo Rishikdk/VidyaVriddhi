@@ -134,8 +134,8 @@
 
                             </div>
                             <div class="work">
-                                <label>Comform Password</label>
-                                <input type="password" name="confirmpassword" id="confirmpassword"
+                                <label>Conform Password</label>
+                                <input type="password" name="conformpassword" id="conformpassword"
                                     placeholder="Confirm Your Password" maxlength="20" required>
 
                                 <label>Profession</label>
@@ -152,7 +152,7 @@
                                 onchange="preview(this, 'profilePreview')" required>
                             <img id="profilePreview" /> -->
                             <br /><label>Document/Certificate:</label>
-                            <input type="file" name="doc" id="doc" accept="image/*"
+                            <input multiple type="file" name="doc" id="doc" accept="image/*"
                                 onchange="preview(this, 'docPreview')" required>
                             <img id="docPreview" />
                         </div>
