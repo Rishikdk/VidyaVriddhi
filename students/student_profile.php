@@ -15,14 +15,13 @@
             <div class="display">
                 <img src="../images/image.png" />
                 <h1 style="color: aliceblue">User name</h1>
-                <label>Contribute:</label>
             </div>
         </div>
 
         <div class="container_nav">
             <ul>
-                <li><a href="ex_profile.php"><i class="fa-solid fa-user"></i> profile</a></li>
-                <li><a href="expertise_header.php"><i class="fas fa-home"></i>home</a></li>
+                <li><a href="student_profile.php"><i class="fa-solid fa-user"></i> profile</a></li>
+                <li><a href="dashboard.php"><i class="fas fa-home"></i>home</a></li>
             </ul>
         </div>
 
@@ -66,41 +65,43 @@
 
                     <div class="user">
                         <br>
-                        <h2>About us</h2>
+                        <h2>ABOUT ME</h2>
                         <form>
                             <div class="row">
-                                <label>Profession</label>
-                                <input type="text" name="profession" id="profession" placeholder="profession" />
+                                <label>Instution</label>
+                                <input type="text" name="instution" id="instution" placeholder="Instution" />
+                                <!-- <label>Profession</label>
+                                <input type="text" name="profession" id="profession" placeholder="profession" /> -->
                                 <label>Short Intro</label>
                                 <textarea type="textarea" name="dec" id="dec" placeholder="about"></textarea>
                             </div>
 
                             <div class="colum">
-                                <label>Instution</label>
-                                <input type="text" name="instution" id="instution" placeholder="Instution" />
+                                <!-- <label>Instution</label>
+                                <input type="text" name="instution" id="instution" placeholder="Instution" /> -->
                             </div>
                         </form>
                     </div>
 
-                    <div class="user">
+                    <!-- <div class="user">
                         <br>
                         <h2>Documents/Certificate</h2>
                         <form>
                             <div class="row">
                                 <label>Profession</label>
                                 <input multiple type="file" name="doc" id="doc" placeholder="Document" />
-                                <!-- <label>Short Intro</label>
+                                 <label>Short Intro</label>
                                 <textarea type="textarea" name="dec" id="dec" placeholder="about"></textarea> -->
-                            </div>
+                </div>
 
-                            <!-- <div class="colum">
+                <!-- <div class="colum">
                                 <label>Instution</label>
                                 <input type="text" name="instution" id="instution" placeholder="Instution" />
                             </div> -->
-                        </form>
-                    </div>
-                </div>
+                </form>
             </div>
+        </div>
+    </div>
 </body>
 
 </html>

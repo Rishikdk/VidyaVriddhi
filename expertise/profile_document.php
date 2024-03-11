@@ -15,6 +15,7 @@
             <div class="display">
                 <img src="../img/icone.png" />
                 <h1 style="color: aliceblue">User name</h1>
+                <label>Contribute:</label>
             </div>
         </div>
 

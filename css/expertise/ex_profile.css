@@ -7,6 +7,11 @@
   flex-direction: column;
 }
 
+.user form {
+  display: flex;
+  justify-content: center;
+}
+
 .container_display {
   display: flex;
   margin: 10px 20px;
