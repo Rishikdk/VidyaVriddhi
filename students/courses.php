@@ -24,13 +24,13 @@ if ($result_get_learner_id->num_rows > 0) {
     $sql = "SELECT c.course_id, 
             c.course_name, 
             c.course_image, 
-            COUNT(DISTINCT e.expertise_id) AS total_contributors,
+            COUNT(DISTINCT e.id) AS total_contributors,
             COUNT(DISTINCT r.resource_id) AS total_resources,
-            EXISTS(SELECT 1 FROM enrollments WHERE course_id = c.course_id AND student_id = '$learner_id') AS is_enrolled
+            EXISTS(SELECT 1 FROM enrollments WHERE course_id = c.course_id AND learner_id = '$learner_id') AS is_enrolled
             FROM Courses c
             LEFT JOIN Topics t ON c.course_id = t.course_id
-            LEFT JOIN Expertise e ON t.topic_id = e.topic_id
             LEFT JOIN Resources r ON t.topic_id = r.topic_id
+            LEFT JOIN expert e ON r.expertise_id = e.id
             GROUP BY c.course_id, c.course_name, c.course_image;";
 
     $result = $conn->query($sql);

@@ -428,3 +428,10 @@ body.active {
 .side-bar.active {
   left: -31rem;
 }
+
+.profile-img {
+  width: 100px !important; /* Adjust the width as needed */
+  height: auto !important; /* Maintain aspect ratio */
+  border-radius: 50% !important; /* Make it round */
+  margin-bottom: 10px !important; /* Add some space below */
+}

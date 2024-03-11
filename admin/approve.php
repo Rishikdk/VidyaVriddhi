@@ -24,14 +24,11 @@
             while ($row = $result->fetch_assoc()) {
                 echo '<div class="resource-details">';
                 echo '<h2>Title: ' . $row["title"] . '</h2>';
-                echo '<p>Description: ' . $row["description"] . '</p>';
-                echo '<div class="thumbnail-container">';
-                echo '<img src="' . $row["thumbnail_path"] . '" alt="Thumbnail" class="thumbnail">';
-                echo '</div>';
+                echo '<h2>Description: ' . $row["description"] . '</h2>';
                 echo '<div class="video-container">';
                 echo '<video src="' . $row["video_path"] . '" controls class="video"></video>';
                 echo '</div>';
-                echo '<form action="process_approval.php" method="post">';
+                echo '<form action="approve_process.php" method="post">';
                 echo '<input type="hidden" name="item_id" value="' . $row["id"] . '">';
                 echo '<button type="submit" name="approve" class="button-35">Approve</button>';
                 echo '<button type="submit" name="reject" class = "button-35">Reject</button>';
