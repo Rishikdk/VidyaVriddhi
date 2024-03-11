@@ -1,0 +1,270 @@
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+h2 {
+  background-color: rgb(201, 215, 215);
+  color: white;
+}
+
+input {
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button1 {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  border: none;
+  height: 36px;
+  width: 74px;
+  border-radius: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button1:hover {
+  opacity: 0.3;
+  transition: background-color 0.15s;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* radio style */
+
+.radio-inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-inputs > * {
+  margin: 6px;
+}
+
+.radio-input:checked + .radio-tile {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #2260ff;
+}
+
+.radio-input:checked + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+  background-color: #2260ff;
+  border-color: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-icon svg {
+  fill: #2260ff;
+}
+
+.radio-input:checked + .radio-tile .radio-label {
+  color: #2260ff;
+}
+
+.radio-input:focus + .radio-tile {
+  border-color: #2260ff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+}
+
+.radio-input:focus + .radio-tile:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  min-height: 80px;
+  border-radius: 0.5rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: 0.15s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-tile:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid #b5bfd9;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 0.25rem;
+  left: 0.25rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.25s ease;
+}
+
+.radio-tile:hover {
+  border-color: #2260ff;
+}
+
+.radio-tile:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.radio-icon svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #494949;
+}
+
+.radio-label {
+  color: #707070;
+  transition: 0.375s ease;
+  text-align: center;
+  font-size: 13px;
+}
+
+.radio-input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.containers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  border-radius: 15%;
+  gap: 15px;
+  transition: 0.5s isin;
+  /* background-color: aquamarine; */
+}
+
+.containers h1 {
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+  padding: 5px;
+}
+
+.containers form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 15px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pass {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.work {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.citizen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.doc_img {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+}
+
+.submit {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.containers input {
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.doc_img img {
+  width: 50px;
+  height: auto;
+}
+
+.citizen img {
+  width: 50px;
+  height: auto;
+}
+
+.continer_info {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  border: solid;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.container_img {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  border: solid;
+  border-radius: 10px;
+  gap: 15px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}

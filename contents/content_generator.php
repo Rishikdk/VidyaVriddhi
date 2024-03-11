@@ -40,7 +40,7 @@
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo '<ul class="w3-bar-item">';
-                        echo '<li class="w3-bar-item w3-button" onclick="openPdf(`' . $row["resource_links"] . '`)">' . $row["topic_name"] . '</li>';
+                        echo '<li class="w3-bar-item w3-button" onclick="openPdf(`' .$row["resource_links"] . '`, `' .$row["resource_types"] . '`)">' . $row["topic_name"] . '</li>';
                         echo '</ul>';
                     }
                 }
