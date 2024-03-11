@@ -7,7 +7,6 @@
     <title>Display PDF</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="content.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         .resource-box {
@@ -40,7 +39,7 @@
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo '<ul class="w3-bar-item">';
-                        echo '<li class="w3-bar-item w3-button" onclick="openPdf(`' .$row["resource_links"] . '`, `' .$row["resource_types"] . '`)">' . $row["topic_name"] . '</li>';
+                        echo '<li class="w3-bar-item w3-button" onclick="openPdf(`' .$row["resource_links"] . '`)">' . $row["topic_name"] . '</li>';
                         echo '</ul>';
                     }
                 }
@@ -67,7 +66,6 @@
         function openPdf(resourceLinks) {
             var links = resourceLinks.split(',');
             var pdfViewer = document.getElementById("pdfViewer");
-            var resourceDetails = document.getElementById("resourceDetails");
             var details = "";
             for (var i = 0; i < links.length; i++) {
                 details += "<div class='resource-box'>";

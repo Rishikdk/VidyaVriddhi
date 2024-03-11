@@ -38,7 +38,6 @@ if(isset($_POST['approve'])) {
         echo "No resource found with the specified item ID.";
     }
 } elseif(isset($_POST['reject'])) {
-    // Handle reject action if needed
 } else {
     echo "Action not specified.";
 }

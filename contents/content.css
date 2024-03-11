@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container_content {
+  display: flex;
+  flex-direction: row;
+  overflow-y: scroll;
+}
+
+.topic_details {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(173, 171, 178);
+  width: 80rem;
+  height: 100vh;
+}
+
+.topic_details h3 {
+  text-align: center;
+  font-size: 30px;
+}
+
+.logo_container {
+  flex: 0 0 auto;
+  max-width: 20%;
+}
+
+.header_container {
+  display: flex;
+  align-items: center;
+  background-color: rgb(8, 205, 156);
+  height: 5rem;
+}
