@@ -27,7 +27,7 @@
 
         <div class="container_show">
             <div class="user">
-                <h2>EXPERTISE INFORMATION</h2>
+                <h2>STUDENT INFORMATION</h2>
                 <form>
                     <div class="row">
                         <label>First name</label>

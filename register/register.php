@@ -33,7 +33,8 @@
 
         <div id="student-form" style="display: none;">
             <div class="containers">
-                <form enctype="multipart/form-data" method="post" action="#" onsubmit="return validateForm()">
+                <form enctype="multipart/form-data" method="post" action="process1.php?type=student"
+                    onsubmit="return validateForm()">
                     <div class="continer_info">
                         <label>Learner Information</label>
                         <div class="row">
@@ -45,7 +46,8 @@
                                 <label>Address</label>
                                 <input type="text" name="address" id="address" placeholder="Enter Address" required />
                                 <label>Contact No.</label>
-                                <input type="number" name="pnum" id="pnum" placeholder="Enter Phone number" required />
+                                <input type="number" name="contact" id="contact" placeholder="Enter Phone number"
+                                    required />
                             </div>
 
                             <div class="contacts">
@@ -60,8 +62,7 @@
                                 <label>Password</label>
                                 <input type="password" name="password" id="password" placeholder="Enter your password"
                                     maxlength="20" required />
-                                <label>Instution</label>
-                                <input type="text" name="instution" id="instution" placeholder="Enter Instution name" />
+
                             </div>
 
                             <div class="pass">
@@ -89,6 +90,8 @@
                         </div>
 
                         <div class="submit">
+                            <textarea type="textarea" name="description" id="description"
+                                placeholder="Write about you"></textarea>
                             <button type="submit" name="submit" class="btn-primary takespace">Register</button>
                         </div>
                     </div>
@@ -101,45 +104,46 @@
             <div class="containers">
 
 
-                <form enctype="multipart/form-data" action="process.php?type=expertise" method="POST"
-                    onsubmit="return validateForm()">
+                <form enctype="multipart/form-data" action="process1.php?type=expertise" method="POST"
+                    onsubmit="return e_validateForm()">
                     <div class="continer_info">
                         <label>Expertise Information</label>
                         <div class="row">
                             <div class="name">
                                 <label>First Name</label>
-                                <input type="text" name="fname" id="fname" placeholder="Enter First Name" required>
+                                <input type="text" name="fname" id="efname" placeholder="Enter First Name" required>
                                 <label>Email</label>
-                                <input type="email" name="email" id="email" placeholder="Enter Email" required>
+                                <input type="email" name="email" id="eemail" placeholder="Enter Email" required>
                                 <label>Contact No.</label>
-                                <input type="number" name="pnum" id="pnum" placeholder="Enter Phone number" required>
+                                <input type="number" name="contact" id="econtact" placeholder="Enter Phone number"
+                                    required>
 
                             </div>
                             <div class="contacts">
                                 <label>Last Name</label>
-                                <input type="text" name="lname" id="lname" placeholder="Enter Last Name" required>
+                                <input type="text" name="lname" id="elname" placeholder="Enter Last Name" required>
                                 <label>Address</label>
-                                <input type="text" name="address" id="address" placeholder="Enter Address" required>
+                                <input type="text" name="address" id="eaddress" placeholder="Enter Address" required>
 
                             </div>
                         </div>
                         <div class="row">
                             <div class="pass">
                                 <label>Password</label>
-                                <input type="password" name="password" id="password" placeholder="Enter Your Password"
+                                <input type="password" name="password" id="epassword" placeholder="Enter Your Password"
                                     maxlength="20" required>
                                 <label>Institution</label>
-                                <input type="text" name="institution" id="institution"
+                                <input type="text" name="institution" id="einstitution"
                                     placeholder="Enter Institution Name" required>
 
                             </div>
                             <div class="work">
                                 <label>Conform Password</label>
-                                <input type="password" name="conformpassword" id="conformpassword"
+                                <input type="password" name="conformpassword" id="econformpassword"
                                     placeholder="Confirm Your Password" maxlength="20" required>
 
                                 <label>Profession</label>
-                                <input type="text" name="profession" id="profession" placeholder="Enter Profession"
+                                <input type="text" name="profession" id="eprofession" placeholder="Enter Profession"
                                     required>
 
                             </div>
@@ -152,19 +156,19 @@
                                 onchange="preview(this, 'profilePreview')" required>
                             <img id="profilePreview" /> -->
                             <br /><label>Document/Certificate:</label>
-                            <input multiple type="file" name="doc" id="doc" accept="image/*"
+                            <input multiple type="file" name="doc" id="edoc" accept="image/*"
                                 onchange="preview(this, 'docPreview')" required>
                             <img id="docPreview" />
                         </div>
                         <div class="citizen">
                             <label>Your picture:</label>
-                            <input type="file" name="pimg" id="pimg" accept="image/*"
+                            <input type="file" name="pimg" id="epimg" accept="image/*"
                                 onchange="preview(this, 'frontPreview')" required />
                             <img id="frontPreview" />
                         </div>
                     </div>
                     <div class="submit">
-                        <textarea type="textarea" name="des" id="des" placeholder="Write about you"></textarea>
+                        <textarea type="textarea" name="des" id="edes" placeholder="Write about you"></textarea>
                         <button type="submit" name="submit_expert" class="btn-primary takespace">Register</button>
                     </div>
                 </form>
@@ -185,14 +189,31 @@
 
         function validateForm() {
             var password = document.getElementById("password").value;
-            var pnum = document.getElementById("pnum").value;
+            var contact = document.getElementById("contact").value;
             var confirmpassword = document.getElementById("confirmpassword").value;
 
             if (password != confirmpassword) {
                 alert("Passwords do not match.");
                 return false;
             }
-            if (pnum.length < 8) {
+            if (contact.length < 8) {
+                alert("Please provide a valid Phone Number!");
+                return false;
+            }
+            return true;
+        }
+
+
+        function e_validateForm() {
+            var password = document.getElementById("epassword").value;
+            var contact = document.getElementById("econtact").value;
+            var confirmpassword = document.getElementById("econfirmpassword").value;
+
+            if (password != confirmpassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            if (contact.length < 8) {
                 alert("Please provide a valid Phone Number!");
                 return false;
             }
