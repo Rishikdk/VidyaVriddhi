@@ -1,19 +1,18 @@
 <?php
-session_start();
 include '../database/db_connect.php';
 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
-    $sql = "SELECT name, profile_picture FROM learner WHERE email = '$username'";
+    $sql = "SELECT fname, profile_picture FROM learner WHERE email = '$username'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $name = $row['name'];
+        $fname = $row['fname'];
         $profile = $row['profile_picture'];
     }
 }
 
-$userNameDisplay = isset($name) ? $name : 'User';
+$userNameDisplay = isset($fname) ? $fname : 'User';
 ?>
 
 <!DOCTYPE html>
@@ -28,24 +27,9 @@ $userNameDisplay = isset($name) ? $name : 'User';
 </head>
 
 <body>
-    <header class="header">
-        <section class="sec">
-            <div class="logo-container">
-                <a href="home.php">
-                    <img src="../images/logo.png" alt="Vidya Vriddhi" class="logo-img">
-                </a>
-            </div>
-            <form action="" method="POST" class="form">
-                <input type="text" placeholder="search course">
-                <button type="submit" class="fas fa-search" name="search_box"></button>
-            </form>
-            <div class="icons">
-                <div id="menu_btn" class="fas fa-bars"></div>
-                <div id="search_btn" class="fas fa-search"></div>
-                <div id="user_btn" class="fas fa-user"></div>
-            </div>
-        </section>
-    </header>
+    <?php
+    include_once('../components/nav.php');
+    ?>
     <div class="side-bar">
         <div class="close-side-bar">
             <i class="fas fa-times"></i>
@@ -66,3 +50,5 @@ $userNameDisplay = isset($name) ? $name : 'User';
             <a href="contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
         </nav>
     </div>
+
+</body>

@@ -1,3 +1,34 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    // Redirect unauthorized users to the login page
+    header("location: ../register/login.php");
+    exit();
+} else {
+    include '../database/db_connect.php';
+
+    // if (isset($_SESSION['username'])) {
+//     $username = $_SESSION['username'];
+//     $sql = "SELECT name, profile_picture FROM learner WHERE email = '$username'";
+//     $result = $conn->query($sql);
+//     if ($result->num_rows > 0) {
+//         $row = $result->fetch_assoc();
+//         $name = $row['name'];
+//         $profile = $row['profile_picture'];
+//     }
+// }
+
+    // $userNameDisplay = isset($name) ? $name : 'User';
+    $email = $_SESSION['username'];
+    $notify = [];
+
+    $notifysql = "SELECT * from notification limit 5";
+    $result = $conn->query($notifysql);
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +60,11 @@
                 </div>
                 <div class="popmessage_container" id="popmessage">
                     <ul>
-                        <li class="" id=""> hello</li>
-                        <li class="" id=""> rishi</li>
+                        <?php
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<li class="" id="">' . $row["message"] . '</li>';
+                        }
+                        ?>
                     </ul>
                 </div>
 
@@ -48,26 +82,6 @@
             </div>
         </section>
     </header>
-    <div class="side-bar">
-        <div class="close-side-bar">
-            <i class="fas fa-times"></i>
-        </div>
-        <div class="profile">
-            <img src="../uploads/profile/<?php echo $profile; ?>" alt="Profile Picture">
-            <h3>
-                <!-- <?php echo $userNameDisplay; ?> -->
-            </h3>
-            <span>student</span>
-            <a href="student_profile.php" class="btn">View Profile</a>
-        </div>
-        <nav class="navbar">
-            <a href="home.php"><i class="fas fa-home"></i><span>home</span></a>
-            <a href="about.php"><i class="fas fa-question"></i><span>about us</span></a>
-            <a href="courses.php"><i class="fas fa-graduation-cap"></i><span>courses</span></a>
-            <a href="teachers.php"><i class="fas fa-chalkboard-user"></i><span>teachers</span></a>
-            <a href="contact.php"><i class="fas fa-headset"></i><span>contact us</span></a>
-        </nav>
-    </div>
 
     <script>
         function togglePopUpMessage() {
