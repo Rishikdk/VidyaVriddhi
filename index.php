@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <?php
-    include 'register/login.php';
-    ?>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    
-</body>
-</html>
+<?php
+//notification send
+function sendNotification($conn, $title, $message, $link)
+{
+    $time = round(microtime(true) * 1000);
+    $sql = "INSERT INTO notification(title,message,link,time) values ('$title','$message','$link','$time')";
+    $conn->query($sql);
+}
+?>
