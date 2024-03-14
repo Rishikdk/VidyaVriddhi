@@ -1,38 +1,3 @@
-<?php
-// session_start();
-// include '../database/db_connect.php';
-
-// // if (isset($_SESSION['username'])) {
-// //     $username = $_SESSION['username'];
-// //     $sql = "SELECT name, profile_picture FROM learner WHERE email = '$username'";
-// //     $result = $conn->query($sql);
-// //     if ($result->num_rows > 0) {
-// //         $row = $result->fetch_assoc();
-// //         $name = $row['name'];
-// //         $profile = $row['profile_picture'];
-// //     }
-// // }
-
-// // $userNameDisplay = isset($name) ? $name : 'User';
-
-
-// $notifysql = "SELECT * from notification where user_id = :uid  order by time desc limit 10;";
-// $result= $conn->query($notifysql);
-
-// if ($result->num_rows > 0) {
-//     while ($row = $result->fetch_assoc()) {
-//         echo '<div class="notification-box">';
-//         echo '<a href="../profile.php?id='. $row["user_id"]. '">';
-//         echo '<img src="../images/'. $row["user_image"]. '" alt="'. $row["user_name"]. '">';
-//         echo '</a>';
-//         echo '<i class="fas fa-user"></i>';
-//         echo '<p>'. $row["message"]. '</p>';
-//         echo '<p>'. $row["time"]. '</p>';
-//         echo '</div>';
-//     }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,6 +21,8 @@
                 <input type="text" placeholder="search course">
                 <button type="submit" class="fas fa-search" name="search_box"></button>
             </form>
+
+            <!-- notification popup -->
             <div class="icons">
                 <div class="popup" onclick="togglePopUpMessage()">
                     <div id="menu_btn" class="fas fa-bell"></div>
@@ -73,8 +40,9 @@
                 </div>
                 <div class="pop_container" id="pophome">
                     <ul>
-                        <li class="" id=""> hi</li>
-                        <li class="" id=""> rishi</li>
+                        <li> <img src="../images/icone.png"> </li>
+                        <li class="" id=""> Profile</li>
+                        <li class="" id=""> Logout</li>
                     </ul>
                 </div>
             </div>

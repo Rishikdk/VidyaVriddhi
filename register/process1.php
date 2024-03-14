@@ -4,6 +4,7 @@ include '../database/db_connect.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_GET['type'] == 'student') {
         extract($_POST);
+        echo "student's course";
         $profilePicture = uploadProfile();
         $password1 = password_hash($password, PASSWORD_DEFAULT);
 
