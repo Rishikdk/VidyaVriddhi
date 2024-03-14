@@ -1,38 +1,26 @@
 <?php
-session_start();
-include_once('header.php');
-include_once('../database/db_connect.php');
-
-if (isset($_POST['submit'])) {
-    if (isset($_GET['course_id'])) {
-        $course_id = $_GET['course_id'];
-    }
-    $title = $_POST['title'];
-    $description = $_POST['description'];
-    $video_path = '../uploads/' . $_FILES['video']['name'];
-
-    move_uploaded_file($_FILES['video']['tmp_name'], $video_path);
-
-    $expertise_id = null;
-    if (isset($_SESSION['username'])) {
-        $username = $_SESSION['username'];
-        $sql_expertise_id = "SELECT id FROM expert WHERE email = '$username'";
-        $result_expertise_id = $conn->query($sql_expertise_id);
-        if ($result_expertise_id->num_rows > 0) {
-            $row_expertise_id = $result_expertise_id->fetch_assoc();
-            $expertise_id = $row_expertise_id['id'];
-            echo $expertise_id;
+    include_once('header.php');
+    include_once('../database/db_connect.php');
+    if (isset($_POST['submit'])) {
+        if(isset($_GET['course_id'])){
+            $course_id = $_GET['course_id'];
+        }
+        $title = $_POST['title'];
+        $description = $_POST['description'];
+    
+        $thumbnail_path = '../uploads/' . $_FILES['thumb']['name'];
+        $video_path = '../uploads/' . $_FILES['video']['name'];
+    
+        move_uploaded_file($_FILES['thumb']['tmp_name'], $thumbnail_path);
+        move_uploaded_file($_FILES['video']['tmp_name'], $video_path);
+    
+        $sql = "INSERT INTO uploaded_items (title,course_id, description, thumbnail_path, video_path) VALUES ('$title','$course_id', '$description', '$thumbnail_path', '$video_path')";
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
-
-    $sql = "INSERT INTO uploaded_items (title, description, course_id, video_path, expertise_id) 
-            VALUES ('$title','$description', '$course_id', '$video_path', '$expertise_id')";
-    if ($conn->query($sql)) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -43,19 +31,37 @@ if (isset($_POST['submit'])) {
     <title>Document</title>
     <link rel="stylesheet" href="../css/expertise/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
     <link rel="stylesheet" href="../css/expertise/playlist.css" />
 </head>
 <body>
     <section class="video-form">
-        <form action="" method="post" enctype="multipart/form-data">
-            <p>Topic<span>*</span></p>
-            <input type="text" name="title" maxlength="100" required placeholder="Title" class="box" />
-            <p>Description<span>*</span></p>
-            <input type="text" name="description" maxlength="100" required placeholder="Description" class="box" />
-            <p>Select video <span>*</span></p>
-            <input type="file" name="video" accept="video/*" required class="box" />
-            <input type="submit" value="Upload" name="submit" class="btn" />
-        </form>
+    <form action="" method="post" enctype="multipart/form-data">
+        <p>Topic<span>*</span></p>
+        <input
+            type="text"
+            name="title"
+            maxlength="100"
+            required
+            placeholder="Title "
+            class="box"
+        />
+        <p>Title description <span>*</span></p>
+        <textarea
+            name="description"
+            class="box"
+            required
+            placeholder="write description"
+            maxlength="1000"
+            cols="30"
+            rows="10"
+        ></textarea>
+        <p>select thumbnail <span>*</span></p>
+        <input type="file" name="thumb" accept="image/*" required class="box" />
+        <p>select video <span>*</span></p>
+        <input type="file" name="video" accept="video/*" required class="box" />
+        <input type="submit" value="upload" name="submit" class="btn" />
+    </form>
     </section>
 </body>
 </html>

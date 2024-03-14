@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="../css/register/register.css">
     <title>Register</title>
-    <style>
-        .form-container {
-            width: 300px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
 </head>
+
 <body>
     <div class="form-container">
-        <button onclick="showStudentForm()">Register as Student</button>
-        <button onclick="showExpertiseForm()">Register as Expertise</button>
+        <div class="radio-inputs">
+            <button onclick="showStudentForm()"> <label>
+                    <input class="radio-input" type="radio" name="engine">
+                    <span class="radio-tile">
+                        <span class="radio-icon">
+                        </span>
+                        <span class="radio-label">Learner register</span>
+                    </span>
+                </label></button>
+
+
+            <button onclick="showExpertiseForm()"> <label>
+                    <input checked="" class="radio-input" type="radio" name="engine">
+                    <span class="radio-tile">
+                        <span class="radio-icon">
+                        </span>
+                        <span class="radio-label">Expertise register</span>
+                    </span>
+                </label></button>
+        </div>
 
         <div id="student-form" style="display: none;">
             <div class="containers">
@@ -86,10 +95,10 @@
                             <button type="submit" name="submit" class="btn-primary takespace">Register</button>
                         </div>
                     </div>
-                </div>
-                <button type="submit" name="submit_learner">Register</button>
-            </form>
+                </form>
+            </div>
         </div>
+
 
         <div id="expertise-form" style="display: none;">
             <div class="containers">
@@ -223,4 +232,5 @@
 
     </script>
 </body>
+
 </html>

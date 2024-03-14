@@ -126,9 +126,7 @@ if (isset($_GET['course_id'])) {
             <p><?php echo $course_description; ?></p>
             <p>Topics: <?php echo $total_topics; ?></p>
             <p>Resources: <?php echo $total_expertise; ?></p>
-            <form action="enroll_process.php?course_id=<?php echo $course_id; ?>" method="post">
-                <button type="submit" class="button1" name="enroll">Enroll</button>
-            </form>
+            <button type="submit" class="button1">Enroll</button>
           </div>
     </div>
     <div class="section">

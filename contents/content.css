@@ -12,8 +12,8 @@
 .topic_details {
   display: flex;
   flex-direction: column;
-  background-color: rgb(173, 171, 178);
-  width: 80rem;
+  background-color: rgb(193, 190, 196);
+  width: 125rem;
   height: 100vh;
 }
 
@@ -30,6 +30,6 @@
 .header_container {
   display: flex;
   align-items: center;
-  background-color: rgb(8, 205, 156);
+  background-color: rgb(42, 173, 64);
   height: 5rem;
 }
