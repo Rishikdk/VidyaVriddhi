@@ -56,7 +56,7 @@ $userNameDisplay = isset($name) ? $name : 'User';
                 <?php echo $userNameDisplay; ?>
             </h3>
             <span>student</span>
-            <a href="student_profile.php" class="btn">View Profile</a>
+            <a href="profile.php" class="btn">View Profile</a>
         </div>
         <nav class="navbar">
             <a href="home.php"><i class="fas fa-home"></i><span>home</span></a>
