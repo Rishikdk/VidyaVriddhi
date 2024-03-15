@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) {
+if (!isset ($_SESSION['username'])) {
     // Redirect unauthorized users to the login page
     header("location: ../register/login.php");
     exit();
@@ -62,7 +62,8 @@ if (!isset($_SESSION['username'])) {
                     <ul>
                         <?php
                         while ($row = $result->fetch_assoc()) {
-                            echo '<li class="" id="">' . $row["message"] . '</li>';
+                            echo '<li class="" id="">' . $row['title'] . '</li>';
+                            echo '<li class="" id="">' . $row['message'] . '</li>';
                         }
                         ?>
                     </ul>

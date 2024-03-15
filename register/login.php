@@ -26,7 +26,7 @@
                 <button type="submit">Log In</button>
                 <div class="container">
                     <div class="signIn">
-                        <a href="./register/register.php">Create a New Account</a>
+                        <a href="/registers">Create a New Account</a>
                     </div>
                 </div>
             </form>
