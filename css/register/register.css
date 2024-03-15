@@ -11,10 +11,36 @@ h2 {
 }
 
 input {
-  background-color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 5px;
+  max-width: 190px;
+  height: 44px;
+  background-color: #05060f0a;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
+    color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #05060f99;
+  transition: color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+}
+
+input:hover,
+input:focus,
+input-group:hover input {
+  outline: none;
+  border-color: #05060f;
+}
+
+input-group:hover label,
+input:focus {
+  color: #05060fc2;
 }
 
 .button1 {
@@ -40,9 +66,6 @@ input {
   align-items: center;
   width: 600px;
   height: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 /* radio style */
 
@@ -163,10 +186,8 @@ input {
   align-items: center;
   width: 100%;
   height: auto;
-  border-radius: 15%;
   gap: 15px;
   transition: 0.5s isin;
-  /* background-color: aquamarine; */
 }
 
 .containers h1 {
@@ -261,8 +282,8 @@ input {
 .container_img {
   display: flex;
   flex-direction: column;
+  height: 300px;
   width: 550px;
-  border: solid;
   border-radius: 10px;
   gap: 15px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
