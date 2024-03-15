@@ -1,10 +1,10 @@
 <?php
 session_start();
-include_once('header.php');
-include_once('../database/db_connect.php');
+include_once ('header.php');
+include_once ('../database/db_connect.php');
 
-if (isset($_POST['submit'])) {
-    if (isset($_GET['course_id'])) {
+if (isset ($_POST['submit'])) {
+    if (isset ($_GET['course_id'])) {
         $course_id = $_GET['course_id'];
     }
     $title = $_POST['title'];
@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     move_uploaded_file($_FILES['video']['tmp_name'], $video_path);
 
     $expertise_id = null;
-    if (isset($_SESSION['username'])) {
+    if (isset ($_SESSION['username'])) {
         $username = $_SESSION['username'];
         $sql_expertise_id = "SELECT id FROM expert WHERE email = '$username'";
         $result_expertise_id = $conn->query($sql_expertise_id);
@@ -25,18 +25,30 @@ if (isset($_POST['submit'])) {
         }
     }
 
-    $sql = "INSERT INTO uploaded_items (title, description, course_id, video_path, expertise_id) 
-            VALUES ('$title','$description', '$course_id', '$video_path', '$expertise_id')";
+    $sql = "INSERT INTO uploaded_items (title, description, video_path, expertise_id, course_id) 
+            VALUES ('$title','$description', '$video_path', '$expertise_id','$course_id')";
     if ($conn->query($sql)) {
         echo "New record created successfully";
+        sendNotification($conn, $title, " Details and vedios of the course", "/students/course.php");
+        header("Location:/expertise/contribute.php");
+        exit();
+
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+}
+
+function sendNotification($conn, $title, $message, $link)
+{
+    $time = round(microtime(true) * 1000);
+    $sql = "INSERT INTO notification(title,message,link,time) values ('$title','$message','$link','$time')";
+    $conn->query($sql);
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +57,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../css/expertise/playlist.css" />
 </head>
+
 <body>
     <section class="video-form">
         <form action="" method="post" enctype="multipart/form-data">
@@ -58,4 +71,5 @@ if (isset($_POST['submit'])) {
         </form>
     </section>
 </body>
+
 </html>
