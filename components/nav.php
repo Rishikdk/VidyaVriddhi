@@ -53,6 +53,12 @@ if (!isset ($_SESSION['username'])) {
                             echo '<li class="" id="">' . $row['message'] . '</li>';
                         }
                         ?>
+                        <?php
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<li class="" id="">' . $row['title'] . '</li>';
+                            echo '<li class="" id="">' . $row['message'] . '</li>';
+                        }
+                        ?>
                     </ul>
                 </div>
 

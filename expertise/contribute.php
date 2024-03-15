@@ -1,10 +1,10 @@
 <?php
 session_start();
-include_once('header.php');
-include_once('../database/db_connect.php');
+include_once ('header.php');
+include_once ('../database/db_connect.php');
 
-if (isset($_POST['submit'])) {
-    if (isset($_GET['course_id'])) {
+if (isset ($_POST['submit'])) {
+    if (isset ($_GET['course_id'])) {
         $course_id = $_GET['course_id'];
     } else {
         echo "Course ID is not provided!";
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     move_uploaded_file($_FILES['video']['tmp_name'], $video_path);
 
     $expertise_id = null;
-    if (isset($_SESSION['username'])) {
+    if (isset ($_SESSION['username'])) {
         $username = $_SESSION['username'];
         $sql_expertise_id = "SELECT id FROM expert WHERE email = '$username'";
         $result_expertise_id = $conn->query($sql_expertise_id);
@@ -56,6 +56,7 @@ function sendNotification($conn, $title, $message, $link)
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,6 +64,7 @@ function sendNotification($conn, $title, $message, $link)
     <link rel="stylesheet" href="../css/expertise/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 
 <body>
     <section class="video-form">
@@ -79,5 +81,6 @@ function sendNotification($conn, $title, $message, $link)
         </form>
     </section>
 </body>
+
 
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./register/login.css">
+    <link rel="stylesheet" href="../register/login.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
             <img src="./images/logo.png" class="logo" alt="">
         </div>
         <div class="right">
-            <form action="./register/login_process.php" method="POST" class="form">
+            <form action="../register/login_process.php" method="POST" class="form">
                 <div class="username prefix">
                     <label>Username :</label>
                     <input type="text" name="username" id="name">
@@ -26,7 +26,7 @@
                 <button type="submit">Log In</button>
                 <div class="container">
                     <div class="signIn">
-                        <a href="./register/register.php">Create a New Account</a>
+                        <a href="/registers">Create a New Account</a>
                     </div>
                 </div>
             </form>

@@ -151,6 +151,11 @@
     <?php
     // include_once ('./components/footer.php');
     ?>
+
+    <!-- footer -->
+    <?php
+    // include_once ('./components/footer.php');
+    ?>
     <script>
         function showStudentForm() {
             document.getElementById('student-form').style.display = 'block';

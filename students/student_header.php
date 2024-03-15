@@ -4,6 +4,7 @@ session_start();
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $sql = "SELECT fname, profile_picture FROM learner WHERE email = '$username'";
+    $sql = "SELECT fname, profile_picture FROM learner WHERE email = '$username'";
     $result = $conn->query($sql);
     if ($result) {
         if ($result->num_rows > 0) {
@@ -21,6 +22,7 @@ if (isset($_SESSION['username'])) {
 }
 
 $userNameDisplay = isset($fname) ? $fname : 'User';
+$userNameDisplay = isset($fname) ? $fname : 'User';
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +37,9 @@ $userNameDisplay = isset($fname) ? $fname : 'User';
 </head>
 
 <body>
+    <?php
+    include_once('../components/nav.php');
+    ?>
     <?php
     include_once('../components/nav.php');
     ?>
