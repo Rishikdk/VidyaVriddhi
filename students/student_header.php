@@ -40,9 +40,6 @@ $userNameDisplay = isset($fname) ? $fname : 'User';
     <?php
     include_once('../components/nav.php');
     ?>
-    <?php
-    include_once('../components/nav.php');
-    ?>
     <div class="side-bar">
         <div class="close-side-bar">
             <i class="fas fa-times"></i>

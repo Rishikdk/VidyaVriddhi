@@ -76,7 +76,7 @@ function sendNotification($conn, $title, $message, $link)
             <p>Select video <span>*</span></p>
             <input type="file" name="video" accept="video/*" required class="box" />
             <input type="submit" value="Upload" name="submit" class="btn" />
-            <a href="assessment.php" class ="button-28">Upload Assessment</a>
+            <a href="assessment.php<?php if(isset($_GET['course_id'])) echo '?course_id=' . $_GET['course_id']; ?>" class ="button-28">Upload Assessment</a>
 
         </form>
     </section>

@@ -134,6 +134,31 @@ if (isset($_GET['course_id'])) {
     <div class="section">
       <div class="dashboard">
         <h1> DASHBOARD </h1>
+        <h2>Assessment Details</h2>
+        <?php
+        $sql_assessments = "SELECT * FROM assessments WHERE course_id = '$course_id'";
+        $result_assessments = $conn->query($sql_assessments);
+        if ($result_assessments->num_rows > 0) {
+            while ($row_assessment = $result_assessments->fetch_assoc()) {
+                $assessment_title = $row_assessment['title'];
+                $assessment_id = $row_assessment['id'];
+
+                $sql_questions_count = "SELECT COUNT(*) AS question_count FROM questions WHERE assessment_id = '$assessment_id'";
+                $result_questions_count = $conn->query($sql_questions_count);
+                $question_count = ($result_questions_count->num_rows > 0) ? $result_questions_count->fetch_assoc()['question_count'] : 0;
+
+                $passing_marks = $row_assessment['passing_score'];
+
+                echo "<div class='assessment-detail'>";
+                echo "<p><strong>Title:</strong> $assessment_title</p>";
+                echo "<p><strong>Total Questions:</strong> $question_count</p>";
+                echo "<p><strong>Passing Score:</strong> $passing_marks</p>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p>No assessments found.</p>";
+        }
+        ?>
       </div>
     </div>
 </div>

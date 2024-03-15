@@ -1,18 +1,48 @@
 <?php
 include_once('../database/db_connect.php');
+session_start();
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $sql = "SELECT id FROM expert WHERE email = '$username'";
+    $result = $conn->query($sql);
+    if ($result) {
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $expertise_id = $row['id'];
+            echo "Expertise ID: " . $expertise_id . "<br>"; // Debugging output
+        } else {
+            echo "No rows returned from the database for username: $username";
+        }
+    } else {
+        echo "Query execution failed: " . $conn->error;
+    }
+} else {
+    echo "Username session variable is not set.";
+}
+
+if (isset ($_GET['course_id'])) {
+    $course_id = $_GET['course_id'];
+    echo "Course ID: " . $course_id . "<br>"; 
+} else {
+    echo "Course ID is not provided!";
+    exit(); 
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $description = $_POST['description'];
-    $expertise_id = $_POST['expertise_id'];
     $passing_score = $_POST['passing_score'];
+    $course_id = $_POST['course_id']; 
     
-    $sql_insert_assessment = "INSERT INTO assessments (title, description, expertise_id, passing_score) 
-                              VALUES ('$title', '$description', $expertise_id, $passing_score)";
+    echo "Expertise ID: " . $expertise_id . "<br>"; 
+    echo "Course ID: " . $course_id . "<br>";
+    
+    $sql_insert_assessment = "INSERT INTO assessments (title, description, expertise_id, passing_score, course_id) 
+                              VALUES ('$title', '$description', $expertise_id, $passing_score, $course_id)";
     if ($conn->query($sql_insert_assessment) === TRUE) {
         $assessment_id = $conn->insert_id; 
         
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 1; $i++) {
             $question_text = $_POST["question$i"];
             $correct_option = $_POST["correct_option$i"];
             $option1 = $_POST["option1_$i"];
@@ -32,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,25 +70,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Assessment</title>
     <link rel="stylesheet" href="assessment.css">
-    
 </head>
 <body>
     <h2>Create Assessment</h2>
-    <form action="create_assessment.php" method="post">
+    <form action="assessment.php?course_id=<?php echo $course_id; ?>" method="post">
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title" required><br>
         
         <label for="description">Description:</label><br>
         <textarea id="description" name="description" required></textarea><br>
         
-        <label for="expertise_id">Expertise ID:</label><br>
-        <input type="number" id="expertise_id" name="expertise_id" required><br>
-        
         <label for="passing_score">Passing Score:</label><br>
         <input type="number" id="passing_score" name="passing_score" step="0.01" required><br>
         
+        <input type="hidden" name="course_id" value="<?php echo $course_id; ?>">
+        
         <h3>Questions:</h3>
-        <?php for ($i = 1; $i <= 10; $i++): ?>
+        <?php for ($i = 1; $i <= 1; $i++): ?>
             <label for="question<?php echo $i; ?>">Question <?php echo $i; ?>:</label><br>
             <input type="text" id="question<?php echo $i; ?>" name="question<?php echo $i; ?>" required><br>
             
