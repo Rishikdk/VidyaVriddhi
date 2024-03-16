@@ -8,12 +8,12 @@
 // }
 
 $routes = [
-    "/" => "components/home.php",
-    "/registers" => "register/register.php",
-    "/login" => "register/login.php",
-    "/add" => "views/add.php",
-    "/delete" => "views/delete.php",
-    "/admin_header" => "admin/admin_header.php",
+    // "/" => "components/home.php",
+    // "/registers" => "register/register.php",
+    // "/login" => "register/login.php",
+    // "/add" => "views/add.php",
+    // "/delete" => "views/delete.php",
+    // "/admin_header" => "admin/admin_header.php",
 ];
 
 $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
