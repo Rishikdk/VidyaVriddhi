@@ -479,3 +479,131 @@ iframe {
 .side-bar.active {
   left: -31rem;
 }
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap");
+
+:root {
+  --main-color: #8e44ad;
+  --red: #e74c3c;
+  --oragen: #f39c12;
+  --white: #fff;
+  --black: #2c3e50;
+  --light-color: #888;
+  --light-bg: #eee;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+*::selection {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+*::-webkit-scrollbar {
+  height: 0.5rem;
+  width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--light-bg);
+  padding-left: 30rem;
+  /* padding-bottom: 7rem; */
+}
+
+body.dark {
+  --white: #222;
+  --black: #fff;
+  --light-color: #aaa;
+  --light-bg: #333;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.2);
+}
+
+body.active {
+  padding-left: 0;
+}
+
+section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.btn,
+.option-btn,
+.delete-btn,
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn {
+  border-radius: 0.5rem;
+  padding: 1rem 3rem;
+  font-size: 1.8rem;
+  color: #fff;
+  margin-top: 1rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn,
+.option-btn,
+.delete-btn {
+  display: block;
+  width: 100%;
+}
+
+.inline-btn,
+.inline-option-btn,
+.inline-delete-btn {
+  display: inline-block;
+}
+
+.btn,
+.inline-btn {
+  background-color: var(--main-color);
+}
+
+.option-btn,
+.inline-option-btn {
+  background-color: var(--oragen);
+}
+
+.delete-btn,
+.inline-delete-btn {
+  background-color: var(--red);
+}
+
+.btn:hover,
+.option-btn:hover,
+.delete-btn:hover,
+.inline-btn:hover,
+.inline-option-btn:hover,
+.inline-delete-btn:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.flex-btn {
+  display: flex;
+  gap: 1rem;
+}

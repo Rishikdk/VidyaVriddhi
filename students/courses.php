@@ -23,8 +23,6 @@ include_once('../database/db_connect.php');
         $row_learner_id = $result_get_learner_id->fetch_assoc();
 
         $learner_id = $row_learner_id['id'];
-        echo $learner_id;
-
         $sql = "SELECT c.course_id, 
             c.course_name, 
             c.course_image, 

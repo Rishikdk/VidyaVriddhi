@@ -1,24 +1,11 @@
 <?php
-session_start();
+//session_start();
 if (!isset ($_SESSION['username'])) {
-    // Redirect unauthorized users to the login page
     header("location: ../register/login.php");
     exit();
 } else {
     include '../database/db_connect.php';
 
-    // if (isset($_SESSION['username'])) {
-//     $username = $_SESSION['username'];
-//     $sql = "SELECT name, profile_picture FROM learner WHERE email = '$username'";
-//     $result = $conn->query($sql);
-//     if ($result->num_rows > 0) {
-//         $row = $result->fetch_assoc();
-//         $name = $row['name'];
-//         $profile = $row['profile_picture'];
-//     }
-// }
-
-    // $userNameDisplay = isset($name) ? $name : 'User';
     $email = $_SESSION['username'];
     $notify = [];
 
@@ -60,6 +47,12 @@ if (!isset ($_SESSION['username'])) {
                 </div>
                 <div class="popmessage_container" id="popmessage">
                     <ul>
+                        <?php
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<li class="" id="">' . $row['title'] . '</li>';
+                            echo '<li class="" id="">' . $row['message'] . '</li>';
+                        }
+                        ?>
                         <?php
                         while ($row = $result->fetch_assoc()) {
                             echo '<li class="" id="">' . $row['title'] . '</li>';

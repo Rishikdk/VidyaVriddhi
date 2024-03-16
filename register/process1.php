@@ -8,9 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $profilePicture = uploadLprofile();
         $password1 = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO learner (fname,lname, address, email, contact, password, profile_picture,description) 
-                VALUES ('$fname','$lname', '$address', '$email', '$contact', '$password1', '$profilePicture', '$description')";
-        // $conn->query($sql);
+        $sql = "INSERT INTO learner (fname,lname, address, email, contact, password, profile_picture) 
+                VALUES ('$fname','$lname', '$address', '$email', '$contact', '$password1', '$profilePicture')";
         if ($conn->query($sql) === TRUE) {
 
             echo "Student registered successfully<br>";

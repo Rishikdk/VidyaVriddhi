@@ -9,12 +9,10 @@
 </head>
 
 <body>
-    <!-- nav bar of register section -->
     <?php
     include_once ('../components/register_nav.php');
     ?>
 
-    <!-- registration form of learner and expertise -->
     <div class="form-container">
         <div class="radio-inputs">
             <label>
@@ -148,6 +146,11 @@
             </div>
         </div>
     </div>
+
+    <!-- footer -->
+    <?php
+    // include_once ('./components/footer.php');
+    ?>
 
     <!-- footer -->
     <?php
